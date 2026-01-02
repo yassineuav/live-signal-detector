@@ -1,0 +1,57 @@
+project:
+  name: ML_Options_Trading_Bot
+  version: 1.0.0
+  loop_interval_minutes: 60
+market:
+  symbols:
+  - SPY
+  - QQQ
+  - IWM
+  timezone: US/Eastern
+  timeframe_train: 1h
+  timeframe_trade: 1h
+  start_date: '2021-01-01'
+  end_date: '2025-12-31'
+data:
+  provider: yfinance
+  history_years: 2
+  use_mock_options: true
+risk:
+  starting_capital: 1000
+  risk_per_trade_pct: 0.2
+  max_trades_per_day: 10
+  stop_loss_pct: 20
+  take_profit_pct_min: 50
+  take_profit_pct_max: 1000
+  max_drawdown_limit_pct: 0.2
+  option_min_price: 0.1
+  option_max_price: 0.3
+model:
+  target_horizon_minutes: 60
+  prediction_threshold: 0.001
+  confidence_threshold: 0.55
+  retrain_interval_days: 7
+  sequence_length: 24
+  lstm_units: 100
+  epochs: 50
+  batch_size: 32
+  features:
+  - RSI
+  - MACD
+  - ATR
+  - EMA_9
+  - EMA_20
+  - EMA_50
+  - Volume_Delta
+  - VWAP
+  - Hour
+  - DayOfWeek
+  - RSI_4h
+  - MACD_4h
+  - ATR_4h
+paths:
+  data_dir: data
+  models_dir: models
+  results_dir: results
+  logs_dir: logs
+loop_interval_minutes: 60

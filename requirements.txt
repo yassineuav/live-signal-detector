@@ -1,0 +1,15 @@
+pandas
+numpy
+yfinance
+scikit-learn
+xgboost
+joblib
+matplotlib
+plotly
+pyyaml
+ta
+requests
+fastapi
+uvicorn
+python-dotenv
+torch
